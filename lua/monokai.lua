@@ -713,16 +713,25 @@ M.setup = function(config)
   config = vim.tbl_deep_extend('keep', config, default_config)
   local used_palette = config.palette or M.classic
   vim.g.colors_name = used_palette.name
+
+  local custom_hlgroups = {}
+  if type(config.custom_hlgroups) == 'function' then
+    custom_hlgroups = config.custom_hlgroups(used_palette)
+  elseif type(config.custom_hlgroups) == 'table' then
+    custom_hlgroups = config.custom_hlgroups
+  end
+
   local syntax = M.load_syntax(used_palette)
-  syntax = vim.tbl_deep_extend('keep', config.custom_hlgroups, syntax)
+  syntax = vim.tbl_deep_extend('keep', custom_hlgroups, syntax)
   local highlight = highlighter(config)
   for group, colors in pairs(syntax) do
     highlight(group, colors)
   end
+
   local plugin_syntax = M.load_plugin_syntax(used_palette)
   plugin_syntax = vim.tbl_deep_extend(
     'keep',
-    config.custom_hlgroups,
+    custom_hlgroups,
     plugin_syntax
   )
   for group, colors in pairs(plugin_syntax) do
