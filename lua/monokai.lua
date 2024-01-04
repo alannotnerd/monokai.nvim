@@ -79,7 +79,7 @@ M.soda = {
   pink = '#f3005f',
   green = '#97e023',
   aqua = '#78DCE8',
-  yellow = ' #dfd561',
+  yellow = '#dfd561',
   orange = '#fa8419',
   purple = '#9c64fe',
   red = '#f3005f',
@@ -348,7 +348,8 @@ M.load_syntax = function(palette)
       fg = palette.green,
     },
     Include = {
-      fg = palette.pink,
+      fg = palette.aqua,
+      style = 'italic',
     },
     Define = {
       fg = palette.pink,
@@ -445,131 +446,304 @@ M.load_syntax = function(palette)
 end
 
 M.load_plugin_syntax = function(palette)
+  local math_group = {
+    fg = palette.yellow,
+  }
+  local strike_group = {
+    fg = palette.grey,
+  }
+  local todo_group = {
+    fg = palette.aqua,
+  }
+  local uri_group = {
+    fg = palette.aqua,
+    style = 'underline',
+  }
   return {
-    TSString = {
-      fg = palette.yellow,
-    },
-    TSInclude = {
-      fg = palette.pink,
-    },
-    TSVariable = {
-      fg = palette.white,
-    },
-    TSVariableBuiltin = {
-      fg = palette.orange,
-    },
-    TSAnnotation = {
+    ["@annotation"] = {
       fg = palette.green,
     },
-    TSComment = {
+    ["@attribute"] = {
+      fg = palette.green,
+    },
+    ["@boolean"] = {
+      fg = palette.purple,
+    },
+    ["@character"] = {
+      fg = palette.yellow,
+    },
+    ["@character.special"] = {
+      fg = palette.purple,
+    },
+    ["@comment"] = {
       fg = palette.base6,
       style = 'italic',
     },
-    TSConstant = {
-      fg = palette.aqua,
+    ["@conceal"] = {
+      fg = palette.grey,
     },
-    TSConstBuiltin = {
-      fg = palette.purple,
-    },
-    TSConstMacro = {
-      fg = palette.purple,
-    },
-    TSConstructor = {
-      fg = palette.aqua,
-    },
-    TSConditional = {
+    ["@conditional"] = {
       fg = palette.pink,
     },
-    TSCharacter = {
+    ["@conditional.ternary"] = {
+      fg = palette.pink,
+    },
+    ["@constant"] = {
+      fg = palette.aqua,
+    },
+    ["@constant.builtin"] = {
+      fg = palette.purple,
+    },
+    ["@constant.macro"] = {
+      fg = palette.purple,
+    },
+    ["@constructor"] = {
+      fg = palette.aqua,
+    },
+    ["@debug"] = {
+      fg = palette.pink,
+    },
+    ["@define"] = {
+      fg = palette.aqua,
+    },
+    ["@definition"] = {
+      fg = palette.green,
+    },
+    ["@definition.associated"] = {
+      fg = palette.green,
+    },
+    ["@definition.constant"] = {
+      fg = palette.green,
+    },
+    ["@definition.enum"] = {
+      fg = palette.green,
+    },
+    ["@definition.field"] = {
+      fg = palette.green,
+    },
+    ["@definition.function"] = {
+      fg = palette.green,
+    },
+    ["@definition.import"] = {
+      fg = palette.white,
+    },
+    ["@definition.macro"] = {
+      fg = palette.green,
+    },
+    ["@definition.method"] = {
+      fg = palette.green,
+    },
+    ["@definition.namespace"] = {
+      fg = palette.white,
+    },
+    ["@definition.parameter"] = {
+      fg = palette.orange,
+    },
+    ["@definition.type"] = {
+      fg = palette.green,
+    },
+    ["@definition.var"] = {
+      fg = palette.green,
+    },
+    ["@error"] = {
+      fg = palette.red,
+    },
+    ["@exception"] = {
+      fg = palette.pink,
+    },
+    ["@field"] = {
+      fg = palette.white,
+    },
+    ["@float"] = {
+      fg = palette.purple,
+    },
+    ["@function"] = {
+      fg = palette.green,
+      style = 'italic',
+    },
+    ["@function.builtin"] = {
+      fg = palette.aqua,
+    },
+    ["@function.call"] = {
+      fg = palette.white,
+    },
+    ["@function.macro"] = {
+      fg = palette.green,
+      style = 'italic',
+    },
+    ["@include"] = {
+      fg = palette.aqua,
+      style = 'italic',
+    },
+    ["@keyword"] = {
+      fg = palette.pink,
+      style = 'italic',
+    },
+    ["@keyword.function"] = {
+      fg = palette.aqua,
+      style = 'italic',
+    },
+    ["@keyword.operator"] = {
+      fg = palette.pink,
+    },
+    ["@keyword.return"] = {
+      fg = palette.pink,
+    },
+    ["@label"] = {
+      fg = palette.pink,
+    },
+    ["@math"] = math_group,
+    ["@method"] = {
+      fg = palette.green,
+    },
+    ["@method.call"] = {
+      fg = palette.white,
+    },
+    ["@namespace"] = {
+      fg = palette.purple,
+    },
+    -- ["@nospell"] = {},
+    ["@number"] = {
+      fg = palette.purple,
+    },
+    ["@operator"] = {
+      fg = palette.pink,
+    },
+    ["@parameter"] = {
+      fg = palette.orange,
+    },
+    ["@parameter.reference"] = {
+      fg = palette.white,
+    },
+    ["@preproc"] = {
+      fg = palette.green,
+    },
+    ["@property"] = {
+      fg = palette.white,
+    },
+    ["@punctuation.bracket"] = {
+      fg = palette.white,
+    },
+    ["@punctuation.delimiter"] = {
+      fg = palette.white,
+    },
+    ["@punctuation.special"] = {
+      fg = palette.pink,
+    },
+    ["@reference"] = {
+      fg = palette.white,
+    },
+    ["@repeat"] = {
+      fg = palette.pink,
+    },
+    ["@scope"] = {
+      fg = palette.white,
+    },
+    -- ["@spell"] = {},
+    ["@storageclass"] = {
+      fg = palette.aqua,
+    },
+    ["@storageclass.lifetime"] = {
+      fg = palette.aqua,
+    },
+    ["@strike"] = strike_group,
+    ["@string"] = {
       fg = palette.yellow,
     },
-    TSFunction = {
-      fg = palette.green,
-      style = 'italic',
+    ["@string.escape"] = {
+      fg = palette.purple,
     },
-    TSFuncBuiltin = {
+    ["@string.regex"] = {
+      fg = palette.purple,
+    },
+    ["@string.special"] = {
+      fg = palette.purple,
+    },
+    ["@symbol"] = {
+      fg = palette.purple,
+    },
+    ["@tag"] = {
+      fg = palette.pink,
+    },
+    ["@tag.attribute"] = {
+      fg = palette.green,
+    },
+    ["@tag.delimiter"] =  {
+      fg = palette.white,
+    },
+    ["@text"] = {
+      fg = palette.green,
+    },
+    ["@text.danger"] = {
+      fg = palette.red,
+      style = 'bold',
+    },
+    ["@text.diff.add"] = {
+      fg = palette.diff_add,
+    },
+    ["@text.diff.delete"] = {
+      fg = palette.diff_remove,
+    },
+    ["@text.emphasis"] = {
+      style = 'bold',
+    },
+    ["@text.environment"] = {
+      fg = palette.purple,
+    },
+    ["@text.environment.name"] = {
       fg = palette.aqua,
     },
-    TSFuncMacro = {
-      fg = palette.green,
+    ["@text.literal"] = {
+      fg = palette.yellow,
+    },
+    ["@text.math"] = math_group,
+    ["@text.note"] = {
+      fg = palette.aqua,
+      style = 'bold',
+    },
+    ["@text.quote"] = {
+      fg = palette.grey,
+    },
+    ["@text.reference"] = {
+      fg = palette.orange,
       style = 'italic',
     },
-    TSKeyword = {
-      fg = palette.pink,
-      style = 'italic',
+    ["@text.strike"] = strike_group,
+    ["@text.strong"] = {
+      style = 'bold',
     },
-    TSKeywordFunction = {
-      fg = palette.pink,
-      style = 'italic',
+    ["@text.title"] = {
+      fg = palette.yellow,
+      style = 'bold',
     },
-    TSKeywordOperator = {
-      fg = palette.pink,
+    ["@text.todo"] = todo_group,
+    ["@text.underline"] = {
+      style = 'underline',
     },
-    TSKeywordReturn = {
-      fg = palette.pink,
+    ["@text.uri"] = uri_group,
+    ["@text.warning"] = {
+      fg = palette.yellow,
+      style = 'bold',
     },
-    TSMethod = {
-      fg = palette.green,
-    },
-    TSNamespace = {
-      fg = palette.purple,
-    },
-    TSNumber = {
-      fg = palette.purple,
-    },
-    TSOperator = {
-      fg = palette.pink,
-    },
-    TSParameter = {
-      fg = palette.white,
-    },
-    TSParameterReference = {
-      fg = palette.white,
-    },
-    TSProperty = {
-      fg = palette.white,
-    },
-    TSPunctDelimiter = {
-      fg = palette.white,
-    },
-    TSPunctBracket = {
-      fg = palette.white,
-    },
-    TSPunctSpecial = {
-      fg = palette.pink,
-    },
-    TSRepeat = {
-      fg = palette.pink,
-    },
-    TSStringRegex = {
-      fg = palette.purple,
-    },
-    TSStringEscape = {
-      fg = palette.purple,
-    },
-    TSTag = {
-      fg = palette.pink,
-    },
-    TSTagDelimiter = {
-      fg = palette.white,
-    },
-    TSTagAttribute = {
-      fg = palette.green,
-    },
-    TSLabel = {
-      fg = palette.pink,
-    },
-    TSType = {
+    ["@todo"] = todo_group,
+    ["@type"] = {
       fg = palette.aqua,
     },
-    TSException = {
+    ["@type.builtin"] = {
+      fg = palette.aqua,
+    },
+    ["@type.definition"] = {
+      fg = palette.aqua,
+    },
+    ["@type.qualifier"] = {
       fg = palette.pink,
     },
-    TSField = {
+    ["@uri"] = uri_group,
+    ["@variable"] = {
       fg = palette.white,
     },
-    TSFloat = {
-      fg = palette.purple,
+    ["@variable.builtin"] = {
+      fg = palette.orange,
     },
     dbui_tables = {
       fg = palette.white,
